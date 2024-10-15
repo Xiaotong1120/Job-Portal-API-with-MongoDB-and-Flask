@@ -78,10 +78,6 @@ To deploy:
 
    This will start the Flask app at `http://localhost:5001` and MongoDB for data storage.
 
-### API Testing
-
-Use Postman or any HTTP client to test the API endpoints.
-
 ### Data Import
 
 To transform and import CSV files into MongoDB:
@@ -101,3 +97,7 @@ To transform and import CSV files into MongoDB:
 
    ```
 4. Verify the data has been imported successfully into the `careerhub` database by using a MongoDB client.
+
+### API Testing
+
+Use Postman or any HTTP client to test the API endpoints.
