@@ -85,7 +85,7 @@ To transform and import CSV files into MongoDB:
 1. Run `csv_to_json.py` to convert the CSV data to JSON format.
 
    ```bash
-   python csv_to_jso.py
+   python csv_to_json.py
    ```
 2. use shell to import the data into mongodb.
    ```bash
