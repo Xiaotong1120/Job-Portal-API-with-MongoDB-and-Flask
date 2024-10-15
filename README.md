@@ -1,11 +1,11 @@
 # Job Portal API with MongoDB and Flask
 
-This project is part of the **DS5760 NoSQL for Modern Data Science Applications** course, where we build a mini job portal API using MongoDB and Flask. The project includes transforming CSV data into JSON format for MongoDB, developing API endpoints for job listings, and setting up the deployment with Docker.
+This project is part of the **DS5760 NoSQL for Modern Data Science Applications** course, where I build a mini job portal API using MongoDB and Flask. The project includes transforming CSV data into JSON format for MongoDB, developing API endpoints for job listings, and setting up the deployment with Docker.
 
 ## Project Structure
 
-- **postman.py**: Main codebase for handling the API logic, including endpoints for creating, updating, deleting, and querying job posts.
-- **test.py**: Script for transforming CSV files into JSON format and importing the data into the MongoDB database.
+- **app.py**: Main codebase for handling the API logic, including endpoints for creating, updating, deleting, and querying job posts.
+- **csv_to_json.py**: Script for transforming CSV files into JSON format and importing the data into the MongoDB database.
 - **docker-compose.yaml**: Docker configuration file for containerized deployment of the application.
 - **MiniProject2.pdf**: Instructions detailing the project requirements and tasks.
 
@@ -24,11 +24,10 @@ The API supports the following operations:
 
 ## Data Transformation
 
-The `test.py` script handles the following:
+The `csv_to_json.py` script handles the following:
 
 - Reads CSV data files.
 - Transforms the data into a nested JSON structure.
-- Imports the JSON files into the MongoDB database.
 
 ## Deployment
 
@@ -65,7 +64,7 @@ To deploy:
 3. Run the Flask app locally:
 
    ```bash
-   python postman.py
+   python app.py
    ```
 
 ### Docker Deployment
@@ -77,7 +76,7 @@ To deploy:
    docker-compose up
    ```
 
-   This will start the Flask app at `http://localhost:5000` and MongoDB for data storage.
+   This will start the Flask app at `http://localhost:5001` and MongoDB for data storage.
 
 ### API Testing
 
@@ -87,14 +86,18 @@ Use Postman or any HTTP client to test the API endpoints.
 
 To transform and import CSV files into MongoDB:
 
-1. Run `test.py` to convert the CSV data to JSON format and import it into MongoDB.
+1. Run `csv_to_json.py` to convert the CSV data to JSON format.
 
    ```bash
-   python test.py
+   python csv_to_jso.py
    ```
+2. use shell to import the data into mongodb.
+   ```bash
+   mongoimport --db careerhub --collection jobs --file jobs_nested.json --jsonArray
 
-2. Verify the data has been imported successfully into the `careerhub` database by using a MongoDB client.
+   mongoimport --db careerhub --collection companies --file companies.json --jsonArray
 
-## License
+   mongoimport --db careerhub --collection industry --file industry_info.json --jsonArray
 
-This project is part of the course **DS5760 NoSQL for Modern Data Science Applications** and follows the Vanderbilt University academic guidelines.
+   ```
+4. Verify the data has been imported successfully into the `careerhub` database by using a MongoDB client.
